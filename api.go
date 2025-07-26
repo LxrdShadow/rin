@@ -9,6 +9,10 @@ type API struct{
 	Client *Client
 }
 
+func (api *API) SetAuth(auth Authentication) {
+	api.Client.SetAuth(auth)
+}
+
 func NewApi(baseURL string) *API {
 	return &API{
 		BaseUrl: baseURL,
@@ -31,4 +35,12 @@ func (api *API) Call(name string, params map[string]string) error{
 		return err
 	}
 	return nil
+}
+
+func (api *API) RessourceNames() []string {
+	ressources := []string{}
+	for k := range api.Ressources{
+		ressources = append(ressources, k)
+	}
+	return ressources
 }

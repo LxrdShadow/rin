@@ -16,5 +16,9 @@ func TestAPICall(t *testing.T){
 	if err := api.Call("get", nil); err!=nil{
 		t.Fail()
 	}
+		resources := api.RessourceNames()
+	if len(resources) != 1 || resources[0] != "get" {
+		t.Fail()
+	}
 
 }
