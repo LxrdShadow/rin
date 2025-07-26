@@ -58,10 +58,3 @@ func main() {
         fmt.Println("Error:", err)
     }
 }
-```
-## Installation
-
-Utilisez `go get` pour ajouter la bibliothèque à votre projet :
-
-```bash
-go get github.com/Rakotoarilala51/rin
