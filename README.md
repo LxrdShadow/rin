@@ -58,7 +58,7 @@ func main() {
         fmt.Println("Error:", err)
     }
 }
-
+```
 ## Installation
 
 Utilisez `go get` pour ajouter la bibliothèque à votre projet :
