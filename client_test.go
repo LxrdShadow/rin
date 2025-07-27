@@ -12,5 +12,5 @@ func TestProcessRequest(t *testing.T) {
 		return nil;
 	})
 	res := NewRessource("/get", "GET", router)
-	if err := client.ProcessRequest("http://httpbin.org", res, nil); err != nil{ t.Fail()}
+	if err := client.ProcessRequest("http://httpbin.org", res, nil, nil); err != nil{ t.Fail()}
 }
