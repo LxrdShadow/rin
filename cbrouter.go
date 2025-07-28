@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type RouterFunc func (resp *http.Response, content interface{}) error
+type RouterFunc func (resp *http.Response) error
 type CBRouter struct {
 	Routers map[int]RouterFunc
 	DefaultRouter RouterFunc
@@ -14,7 +14,7 @@ type CBRouter struct {
 func NewRouter() *CBRouter {
 	return &CBRouter{
 		Routers: make(map[int]RouterFunc),
-		DefaultRouter: func(resp *http.Response, _ interface{}) error {
+		DefaultRouter: func(resp *http.Response) error {
 			return fmt.Errorf("From: %s received unknown status: %d",
 				resp.Request.URL.String(), resp.StatusCode)
 		},
@@ -30,7 +30,7 @@ func (r *CBRouter) CallFunc(resp *http.Response, content interface{}) error {
 	if !ok {
 		fn = r.DefaultRouter
 	}
-	if err := fn(resp, content); err != nil {
+	if err := fn(resp); err != nil {
 		return err
 	}
 	return nil
