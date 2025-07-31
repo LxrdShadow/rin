@@ -33,7 +33,7 @@ package main
 
 import (
     "fmt"
-    "github.com/RaMaitre/rin"
+    "github.com/Rakotoarilala51/rin"
     "net/http"
 )
 
@@ -64,5 +64,5 @@ func main() {
 Utilisez `go get` pour ajouter la bibliothèque à votre projet :
 
 ```bash
-go get github.com/RaMaitre/rin
+go get github.com/Rakotoarilala51/rin
 
